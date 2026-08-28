@@ -4,7 +4,7 @@
   "description": "Collection of NodeJS practice projects and notes",
   "license": "MIT",
   "author": "Ahmed Mahmoud",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
