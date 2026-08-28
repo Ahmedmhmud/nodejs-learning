@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-learning",
+  "version": "1.0.0",
+  "description": "Collection of NodeJS practice projects and notes",
+  "license": "MIT",
+  "author": "Ahmed Mahmoud",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
