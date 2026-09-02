@@ -4,13 +4,17 @@
   "description": "Express.js is a minimal unopinionated framework for NodeJS, and unopinionated means you can structure your application in any way you want, use any library so there is no a lot of conventions and stricted rules to do it.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server",
+    "dev": "node --watch server"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Ahmed Mahmoud",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
