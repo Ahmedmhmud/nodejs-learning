@@ -16,21 +16,22 @@ let posts = [
 
 app.get('/api/posts', (req, res) => {
     const limit = parseInt(req.query.limit);
-    if (! isNaN(limit) && limit > 0) {
-        res.json(posts.slice(0, limit));
-    } else{ 
-        res.json(posts);
+    if (!isNaN(limit) && limit > 0) {
+        return res.json(posts.slice(0, limit));
     }
+
+    res.json(posts);
 });
 
 app.get('/api/posts/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    let post;
-    if (id) {
-        post = posts.find((post) => post.id === id);
+    if (!isNaN(id)) {
+        let post = posts.find((post) => post.id === id);
+        if (post) return res.status(200).json(post);
+        return res.status(404).json({ message: "Post not found" });
     }
-    
-    res.json(post);
+
+    res.status(400).json({ message: "invalid id" });
 });
 
 app.listen(PORT, () => {
