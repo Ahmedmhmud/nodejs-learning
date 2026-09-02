@@ -1,4 +1,4 @@
-# NodeJS notes repo
+# NodeJS notes
 
 This repo contains set of files that are explained with comments, they cove topics like
 

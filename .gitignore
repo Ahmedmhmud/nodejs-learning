@@ -1,3 +1,5 @@
 node_modules
 .env
 text.txt
+express.js/node_modules
+express.js/.env
