@@ -27,4 +27,18 @@ router.get('/:id', (req, res) => {
     res.status(400).json({ message: "invalid id" });
 });
 
+router.post('/', (req, res) => {
+    const newPost = {
+        id: posts.length + 1,
+        title: req.body.title
+    }
+
+    if (!newPost.title) {
+        return res.status(400).json({ message: "Title is missing" });
+    }
+
+    posts.push(newPost);
+    res.status(201).json(newPost);
+});
+
 export default router;
