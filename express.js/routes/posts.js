@@ -16,15 +16,17 @@ router.get('/', (req, res) => {
     res.json(posts);
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', (req, res, next) => {
     const id = parseInt(req.params.id);
     if (!isNaN(id)) {
         let post = posts.find((post) => post.id === id);
         if (post) return res.status(200).json(post);
-        return res.status(404).json({ message: "Post not found" });
+                const error = {message: "Post not found", status: 404};
+        return next(error);
     }
 
-    res.status(400).json({ message: "invalid id" });
+    const error = {message: "Invalid ID", status: 400};
+    return next(error);
 });
 
 router.post('/', (req, res) => {
