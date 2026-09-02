@@ -41,4 +41,19 @@ router.post('/', (req, res) => {
     res.status(201).json(newPost);
 });
 
+router.put('/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id) || id < 0) {
+        return res.status(400).json({ message: "ID must be a positive number" });
+    }
+
+    const post = posts.find((post) => post.id === id);
+    if (!post) {
+        return res.status(404).json({ message: "Post does not exist" });
+    }
+
+    post.title = req.body.title;
+    res.status(200).json(post);
+});
+
 export default router;
