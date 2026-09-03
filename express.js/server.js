@@ -20,6 +20,19 @@ app.use(logger);
 // Setup static server
 app.use(express.static(path.join(__dirname, "public")));
 
+// EJS template engine setup
+
+// app.set('view engine', 'ejs');
+// app.set('views', 'views');
+
+// app.get('/', (req, res) => {
+//     res.render('index', {
+//         title: 'My website',
+//         message: 'Welcome Back',
+//         people: ['Ahmed', 'Mohamed', 'Omar']
+//     });
+// });
+
 app.use('/api/posts', posts);
 
 app.use(notFoundHandler);
