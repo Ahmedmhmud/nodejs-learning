@@ -2,6 +2,9 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import posts from './routes/posts.js';
+import authRoutes from './routes/auth.js';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import logger from './middleware/logger.js';
 import errorHandler from './middleware/error.js';
 import notFoundHandler from './middleware/notFound.js';
@@ -16,6 +19,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(logger);
+
+dotenv.config();
+
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/express-learning';
+
+mongoose.connect(MONGO_URI)
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => console.error('MongoDB connection error:', err.message));
 
 // Setup static server
 app.use(express.static(path.join(__dirname, "public")));
@@ -34,6 +45,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // });
 
 app.use('/api/posts', posts);
+app.use('/api/auth', authRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
