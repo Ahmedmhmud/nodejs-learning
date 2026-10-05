@@ -1,0 +1,24 @@
+CREATE
+────────────────────────────
+User.create({...})
+
+
+READ
+────────────────────────────
+User.find()
+User.findOne({...})
+User.findById(id)
+
+
+UPDATE
+────────────────────────────
+User.updateOne(filter, update)
+User.updateMany(filter, update)
+User.findByIdAndUpdate(id, update)
+
+
+DELETE
+────────────────────────────
+User.deleteOne(filter)
+User.deleteMany(filter)
+User.findByIdAndDelete(id)
